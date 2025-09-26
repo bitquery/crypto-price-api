@@ -18,10 +18,8 @@ This project provides wrappers around Bitquery GraphQL queries and subscriptions
 ## 📦 Installation
 
 ```bash
-npm install @bitquery/pricefeeds
+npm install @bitquery/crypto-price
 ```
-
-(or clone and use locally if unpublished)
 
 ---
 
@@ -91,68 +89,46 @@ To add support for more Trading APIs (e.g., OHLC candles, trades, liquidity pool
 
 1. **Create a new query file** in `queries/` with naming convention:
    `<result-returned>-query.js`
-   Example: `token-price-query.js`
+   Example: `sample-query.js`
 
    ```js
-   const tokenPriceQuery = (currencyId) => {
+   const sampleQuery = (currencyId) => {
      return `
-     {
-       Trading {
-         Tokens(
-           where: {Currency: { Id: {is: "${currencyId}" } }, Interval: {Time: {Duration: {eq: 1}}}}
-           limit: {count: 1}
-           orderBy: {descending: Block_Time}
-         ) {
-           Token { Id Symbol Network }
-           Price { Ohlc { Close High Low Open } }
-         }
-       }
-     }
+     <Your GraphQL Query>
      `;
    };
 
-   const tokenPriceStream = (currencyId) => {
+   const sampleStream = (currencyId) => {
      return `
-     subscription {
-       Trading {
-         Tokens(
-           where: {Currency: { Id: {is: "${currencyId}" } }, Interval: {Time: {Duration: {eq: 1}}}}
-           limit: {count: 1}
-           orderBy: {descending: Block_Time}
-         ) {
-           Token { Id Symbol Network }
-           Price { Ohlc { Close High Low Open } }
-         }
-       }
-     }
+     <Your GraphQL Subscription>
      `;
    };
 
-   module.exports = { tokenPriceQuery, tokenPriceStream };
+   module.exports = { sampleQuery, sampleStream };
    ```
 
 2. **Import into `index.js`:**
 
    ```js
-   const { tokenPriceQuery, tokenPriceStream } = require("./queries/token-price-query.js");
+   const { sampleQuery, sampleStream } = require("./queries/sample-query.js");
    ```
 
 3. **Wrap with a function** for queries or streams in `index.js`:
 
    ```js
-   const getTokenPrice = async (token, tokenId) => {
-     const query = tokenPriceQuery(tokenId);
+   const getSample = async (token, tokenId) => {
+     const query = sampleQuery(tokenId);
      const data = await queryRunner(query, token);
      return data;
    };
 
-   const getTokenPriceStream = (token, tokenId, options = {}) => {
-     const subscription = tokenPriceStream(tokenId);
+   const getSample = (token, tokenId, options = {}) => {
+     const subscription = sampleStream(tokenId);
      return streamRunner(subscription, token, options);
    };
    ```
 
-That’s it! Your new query is available to all SDK users.
+That’s it! Your new query is available to all SDK users after PR merge and release.
 
 ---
 

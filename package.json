@@ -1,14 +1,40 @@
 {
-  "name": "bitquery-crypto-prices",
+  "name": "@bitquery/crypto-price",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "bitquery",
+    "crypto",
+    "cryptocurrency",
+    "price",
+    "price feeds",
+    "crypto prices",
+    "price oracle",
+    "trading",
+    "market data",
+    "ohlc",
+    "candlestick",
+    "candles",
+    "kline",
+    "token",
+    "ethereum",
+    "solana",
+    "bitcoin",
+    "defi",
+    "web3",
+    "blockchain",
+    "real-time",
+    "streaming",
+    "graphql",
+    "sdk",
+    "api"
+  ],
+  "author": "Bitquery Team",
+  "license": "MIT",
+  "description": "SDK for fetching and streaming real-time and historical crypto prices using Bitquery's Trading API. Provides easy-to-use functions for token prices, OHLC candles, market data, and WebSocket streams.",
   "dependencies": {
     "ws": "^8.18.3"
   }
