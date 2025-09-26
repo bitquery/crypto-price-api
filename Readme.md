@@ -25,7 +25,9 @@ npm install @bitquery/crypto-price
 
 ## Access Token
 
-get you Bitquery Access Token [here](https://account.bitquery.io/user/api_v2/access_tokens)
+Get Your Bitquery Access Token [here](https://account.bitquery.io/user/api_v2/access_tokens)
+
+---
 
 ## ⚡ Quick Start
 
