@@ -35,13 +35,17 @@ const getTokenPriceStream = (token, tokenId, options = {}) => {
 /**
  * 
  * @param {String} token - your Bitquery OAuth token
- * @param {String} address - the token address, for example: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" for WETH
+ * @param {String} address - the token address, for example: "0x4d15a3a2286d883af0aa1b3f21367843fac63e07" for WETH
  * @returns 
  */
 const getCurrencyId = async (token, address) => {
     const query = currencyIdQuery(address);
-    const data = await queryRunner(query, token);
-    return data.data.Trading.Tokens[0].Currency.Id;
+    try {
+        const data = await queryRunner(query, token);
+        return data.data.Trading.Tokens[0].Currency.Id;
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 module.exports = {getCurrencyId, getTokenPrice, getTokenPriceStream};
@@ -49,7 +53,7 @@ module.exports = {getCurrencyId, getTokenPrice, getTokenPriceStream};
 /* Usage
 
 (async () => {
-    const currencyId = await getCurrencyId("<token address>")
+    const currencyId = await getCurrencyId("<Access Token>", "<token address>")
     const data = await getTokenPrice("<Access Token>", currencyId);
     console.log(data);
     }
