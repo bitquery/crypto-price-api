@@ -21,9 +21,11 @@ This project provides wrappers around Bitquery GraphQL queries and subscriptions
 npm install @bitquery/pricefeeds
 ```
 
-(or clone and use locally if unpublished)
-
 ---
+
+## Access Token
+
+get you Bitquery Access Token [here](https://account.bitquery.io/user/api_v2/access_tokens)
 
 ## ⚡ Quick Start
 
