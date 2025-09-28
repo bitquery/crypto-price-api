@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/bitquery/crypto-price-feeds/compare/v1.1.0...v1.1.1) (2025-09-28)
+
+
+### Bug Fixes
+
+* fixed the package visibility type ([6fef507](https://github.com/bitquery/crypto-price-feeds/commit/6fef5071c9acd7c090724059122f07f50b58369e))
+
 # [1.1.0](https://github.com/bitquery/crypto-price-feeds/compare/v1.0.4...v1.1.0) (2025-09-28)
 
 
