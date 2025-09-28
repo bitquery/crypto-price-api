@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/bitquery/crypto-price-feeds/compare/v1.1.1...v1.2.0) (2025-09-28)
+
+
+### Features
+
+* Package name change ([85fe19a](https://github.com/bitquery/crypto-price-feeds/commit/85fe19a5933bf497ea457bb4a959486c3a0e469c))
+
 ## [1.1.1](https://github.com/bitquery/crypto-price-feeds/compare/v1.1.0...v1.1.1) (2025-09-28)
 
 
