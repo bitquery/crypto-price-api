@@ -1,5 +1,5 @@
 {
-  "name": "@bitquery/crypto-price",
+  "name": "bitquery-crypto-price",
   "version": "1.1.1",
   "main": "index.js",
   "scripts": {

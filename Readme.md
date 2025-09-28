@@ -18,7 +18,7 @@ This project provides wrappers around Bitquery GraphQL queries and subscriptions
 ## 📦 Installation
 
 ```bash
-npm install @bitquery/crypto-price
+npm install bitquery-crypto-price
 ```
 
 ---
