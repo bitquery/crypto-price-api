@@ -36,6 +36,7 @@
   "license": "MIT",
   "description": "SDK for fetching and streaming real-time and historical crypto prices using Bitquery's Trading API. Provides easy-to-use functions for token prices, OHLC candles, market data, and WebSocket streams.",
   "dependencies": {
+    "@semantic-release/changelog": "^6.0.3",
     "ws": "^8.18.3"
   }
 }
