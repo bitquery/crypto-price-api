@@ -130,6 +130,7 @@ Your commit messages must be in the following format:
 * [ ] Tests/examples added if applicable.
 * [ ] Documentation updated (README, comments, or usage).
 
+**Note:** Make sure the commit message starts with either of the `feat:`, `chore:` or `fix:`.
 ---
 
 ## 📦 Release Process
