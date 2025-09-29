@@ -1,6 +1,7 @@
 const { queryRunner } =  require("./query-runner.js");
 const { streamRunner } = require("./stream-runner.js");
 const {tokenPriceQuery, tokenPriceStream} = require('./queries/token-price-query.js');
+const {priceChangeQuery, priceChangeStream} = require('./queries/price-change-query.js');
 const {currencyIdQuery} = require('./queries/currency-id-query.js');
 
 /**
@@ -64,7 +65,55 @@ const getCurrencyId = async (token, address) => {
     }
 };
 
-module.exports = {getCurrencyId, getTokenPrice, getTokenPriceStream};
+/**
+ * getPriceChange
+ * Get price change data for tokens
+ * @param {string} token - your Bitquery OAuth token
+ * @param {string} address - the token address, e.g. "0x4d15a3a2286d883af0aa1b3f21367843fac63e07"
+ * @returns {JSON Object} - JSON object that contains price change data for tokens
+ */
+const getPriceChange = async (token, address) => {
+    try {
+        // First fetch the currency ID using the address
+        const currencyId = await currencyIdQuery(address, token);
+        console.log("Fetched currencyId for price change:", currencyId);
+        // Then fetch the price change data using the currency ID
+        const query = priceChangeQuery(currencyId);
+        const data = await queryRunner(query, token);
+        return data;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
+/**
+ * getPriceChangeStream
+ * Stream live price change data
+ * @param {string} token - your Bitquery OAuth token
+ * @param {string} address - the token address, e.g. "0x4d15a3a2286d883af0aa1b3f21367843fac63e07"
+ * @param {object} options - optional settings: { autoCloseMs, onData, onError }
+ * @returns {Promise<WebSocket>} - active WebSocket connection
+ */
+const getPriceChangeStream = async (token, address, options = {}) => {
+    try {
+        // First fetch the currency ID using the address
+        const currencyId = await currencyIdQuery(address, token);
+        console.log("Fetched currencyId for price change stream:", currencyId);
+        // Then start the stream using the currency ID
+        const subscription = priceChangeStream(currencyId);
+        return streamRunner(subscription, token, {
+          autoCloseMs: options.autoCloseMs,
+          onData: options.onData,
+          onError: options.onError,
+        });
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
+module.exports = {getCurrencyId, getTokenPrice, getTokenPriceStream, getPriceChange, getPriceChangeStream};
 
 /* Usage
 
