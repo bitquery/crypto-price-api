@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/bitquery/crypto-price-feeds/compare/v1.2.1...v1.3.0) (2025-09-29)
+
+
+### Features
+
+* Create price-change-query.js ([8d20de1](https://github.com/bitquery/crypto-price-feeds/commit/8d20de151739662504d70e915795b67e84565a2e))
+* Create price-change-query.js , Merge pull request [#3](https://github.com/bitquery/crypto-price-feeds/issues/3) from Divyn/patch-3 ([2c6034f](https://github.com/bitquery/crypto-price-feeds/commit/2c6034fadf8d093be5d3c74e3f8383cda742426e))
+
 ## [1.2.1](https://github.com/bitquery/crypto-price-feeds/compare/v1.2.0...v1.2.1) (2025-09-29)
 
 
