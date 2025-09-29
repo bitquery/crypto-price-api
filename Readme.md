@@ -9,6 +9,7 @@ This project provides wrappers around Bitquery GraphQL queries and subscriptions
 
 - Get the latest token price in USD
 - Stream live token price updates
+- Get price change percentage for ROI calculations
 - Convert token addresses into `currencyId` for queries
 - Extendable query SDK workflow for adding new APIs
 - Open source & developer-friendly
@@ -72,13 +73,48 @@ const ws = getTokenPriceStream("<Access Token>", "TOKEN ADDRESS", {
 
 ---
 
+### 3. Get 5-min price change of a token
+
+```js
+const { getPriceChange } = require("@bitquery/pricefeeds");
+
+(async () => {
+  const data = await getPriceChange("<Access Token>", "CURRENCY_ID");
+  console.log( JSON.stringify(data, null, 2));
+})();
+```
+
+---
+
+### 4. Stream live price change updates
+
+```js
+const { getPriceChangeStream } = require("@bitquery/pricefeeds");
+
+const ws = getPriceChangeStream("<Access Token>", "CURRENCY_ID", {
+  autoCloseMs: 30000, // optional: auto-close after 30 seconds
+  onData: (data) => {
+    console.log("Live price changes:", JSON.stringify(data, null, 2));
+  },
+  onError: (err) => {
+    console.error("Stream error:", err);
+  },
+});
+
+// ws.close() // manually close if needed
+```
+
+---
+
 ## 🛠️ Available Functions
 
-| Function              | Description                                                   |
-| --------------------- | ------------------------------------------------------------- |
-| `getCurrencyId`       | Get `currencyId` from a token address (required for queries)  |
-| `getTokenPrice`       | Fetch the latest token price (point-in-time query)            |
-| `getTokenPriceStream` | Subscribe to real-time token price updates (WebSocket stream) |
+| Function                | Description                                                   |
+| ----------------------- | ------------------------------------------------------------- |
+| `getCurrencyId`         | Get `currencyId` from a token address (required for queries)  |
+| `getTokenPrice`         | Fetch the latest token price (point-in-time query)            |
+| `getTokenPriceStream`   | Subscribe to real-time token price updates (WebSocket stream) |
+| `getPriceChange`        | Get top tokens by price change percentage (point-in-time query) |
+| `getPriceChangeStream`  | Subscribe to real-time price change updates (WebSocket stream) |
 
 ---
 
