@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/bitquery/crypto-price-feeds/compare/v1.2.0...v1.2.1) (2025-09-29)
+
+
+### Bug Fixes
+
+* fetching currency id automatically ([a834651](https://github.com/bitquery/crypto-price-feeds/commit/a8346513cee1b422baa362503a275bb075b72ee0))
+
 # [1.2.0](https://github.com/bitquery/crypto-price-feeds/compare/v1.1.1...v1.2.0) (2025-09-28)
 
 
