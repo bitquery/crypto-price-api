@@ -6,30 +6,48 @@ const {currencyIdQuery} = require('./queries/currency-id-query.js');
 /**
  * 
  * @param {string} token - your Bitquery OAuth token
- * @param {string} tokenId - the token id, e.g. "bid:bitcoin"
- * @returns {JSON Object} - JSON object that contains the latest price for the respective tokenId
+ * @param {string} address - the token address, e.g. "0x4d15a3a2286d883af0aa1b3f21367843fac63e07" for WETH
+ * @returns {JSON Object} - JSON object that contains the latest price for the respective token
  */
-const getTokenPrice = async (token, tokenId) => {
-    const query = tokenPriceQuery(tokenId);
-    const data = await queryRunner(query, token);
-    return data;
+const getTokenPrice = async (token, address) => {
+    try {
+        // First fetch the currency ID using the address
+        const currencyId = await currencyIdQuery(address, token);
+        console.log("Fetched currencyId:", currencyId);
+        // Then fetch the token price using the currency ID
+        const query = tokenPriceQuery(currencyId);
+        const data = await queryRunner(query, token);
+        return data;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
 }
 
 /**
  * getTokenPriceStream
  * Stream live token price data
  * @param {string} token - your Bitquery OAuth token
- * @param {string} tokenId - the token id, e.g. "bid:bitcoin"
+ * @param {string} address - the token address, e.g. "0x4d15a3a2286d883af0aa1b3f21367843fac63e07" for WETH
  * @param {object} options - optional settings: { autoCloseMs, onData, onError }
- * @returns {WebSocket} - active WebSocket connection
+ * @returns {Promise<WebSocket>} - active WebSocket connection
  */
-const getTokenPriceStream = (token, tokenId, options = {}) => {
-    const subscription = tokenPriceStream(tokenId);
-    return streamRunner(subscription, token, {
-      autoCloseMs: options.autoCloseMs,
-      onData: options.onData,
-      onError: options.onError,
-    });
+const getTokenPriceStream = async (token, address, options = {}) => {
+    try {
+        // First fetch the currency ID using the address
+        const currencyId = await currencyIdQuery(address, token);
+        console.log("Fetched currencyId:", currencyId);
+        // Then start the stream using the currency ID
+        const subscription = tokenPriceStream(currencyId);
+        return streamRunner(subscription, token, {
+          autoCloseMs: options.autoCloseMs,
+          onData: options.onData,
+          onError: options.onError,
+        });
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
 };
 
 /**
@@ -39,10 +57,8 @@ const getTokenPriceStream = (token, tokenId, options = {}) => {
  * @returns 
  */
 const getCurrencyId = async (token, address) => {
-    const query = currencyIdQuery(address);
     try {
-        const data = await queryRunner(query, token);
-        return data.data.Trading.Tokens[0].Currency.Id;
+        return await currencyIdQuery(address, token);
     } catch (error) {
         console.error(error);
     }
@@ -52,20 +68,28 @@ module.exports = {getCurrencyId, getTokenPrice, getTokenPriceStream};
 
 /* Usage
 
+// Get token price using address
 (async () => {
-    const currencyId = await getCurrencyId("<Access Token>", "<token address>")
-    const data = await getTokenPrice("<Access Token>", currencyId);
+    const data = await getTokenPrice("<Access Token>", "0x4d15a3a2286d883af0aa1b3f21367843fac63e07");
     console.log(data);
-    }
-)();
-    
-const ws = getTokenPriceStream("<Access Token>", "bid:bitcoin", {
-    autoCloseMs: 15000,
-    onData: (data) => {
-        console.log("Live BTC Price:", JSON.stringify(data, null, 2));
-    },
-    onError: (err) => {
-        console.error("Stream error:", err);
-    },
-});
+})();
+
+// Stream token price using address
+(async () => {
+    const ws = await getTokenPriceStream("<Access Token>", "0x4d15a3a2286d883af0aa1b3f21367843fac63e07", {
+        autoCloseMs: 15000,
+        onData: (data) => {
+            console.log("Live Token Price:", JSON.stringify(data, null, 2));
+        },
+        onError: (err) => {
+            console.error("Stream error:", err);
+        },
+    });
+})();
+
+// Get currency ID only (if needed separately)
+(async () => {
+    const currencyId = await getCurrencyId("<Access Token>", "0x4d15a3a2286d883af0aa1b3f21367843fac63e07");
+    console.log(currencyId);
+})();
 */

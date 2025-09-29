@@ -7,11 +7,19 @@ This project provides wrappers around Bitquery GraphQL queries and subscriptions
 
 ## 🚀 Features
 
-* Get the latest token price in USD
-* Stream live token price updates
-* Convert token addresses into `currencyId` for queries
-* Extendable query SDK workflow for adding new APIs
-* Open source & developer-friendly
+- Get the latest token price in USD
+- Stream live token price updates
+- Convert token addresses into `currencyId` for queries
+- Extendable query SDK workflow for adding new APIs
+- Open source & developer-friendly
+
+## List of Chains Supported
+
+- Etheruem
+- BSC
+- Solana
+- Tron
+- Polygon
 
 ---
 
@@ -31,38 +39,25 @@ Get Your Bitquery Access Token [here](https://account.bitquery.io/user/api_v2/ac
 
 ## ⚡ Quick Start
 
-### 1. Get a `currencyId` for a token
-
-```js
-const { getCurrencyId } = require("@bitquery/pricefeeds");
-
-(async () => {
-  const currencyId = await getCurrencyId("<Access Token>", "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"); // WETH address
-  console.log(currencyId); // e.g. "bid:ethereum"
-})();
-```
-
----
-
-### 2. Get the latest price for a token
+### 1. Get the latest price for a token
 
 ```js
 const { getTokenPrice } = require("@bitquery/pricefeeds");
 
 (async () => {
-  const data = await getTokenPrice("<Access Token>", "bid:bitcoin");
+  const data = await getTokenPrice("<Access Token>", "TOKEN ADDRESS");
   console.log(data);
 })();
 ```
 
 ---
 
-### 3. Stream live token price updates
+### 2. Stream live token price updates
 
 ```js
 const { getTokenPriceStream } = require("@bitquery/pricefeeds");
 
-const ws = getTokenPriceStream("<Access Token>", "bid:bitcoin", {
+const ws = getTokenPriceStream("<Access Token>", "TOKEN ADDRESS", {
   autoCloseMs: 15000, // optional: auto-close after 15 seconds
   onData: (data) => {
     console.log("Live BTC Price:", JSON.stringify(data, null, 2));
