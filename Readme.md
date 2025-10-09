@@ -21,7 +21,7 @@ A **Crypto Price API** allows developers to access real-time and historical cryp
 
 ## List of Chains Supported by Crypto Price API
 
-- [Etheruem](https://docs.bitquery.io/docs/blockchain/Ethereum/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
+- [Ethereum](https://docs.bitquery.io/docs/blockchain/Ethereum/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
 - [BSC](https://docs.bitquery.io/docs/blockchain/BSC/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
 - [Solana](https://docs.bitquery.io/docs/blockchain/Solana/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
 - [Tron](https://docs.bitquery.io/docs/blockchain/Tron/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
