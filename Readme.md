@@ -1,11 +1,16 @@
 # Crypto Price API
 
-📊 A lightweight set of API to fetch and stream crypto price data from [Bitquery](https://ide.bitquery.io/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds) using its [Trading APIs](https://docs.bitquery.io/docs/category/crypto-price-apis/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds).
-This project provides wrappers around Bitquery GraphQL queries and subscriptions so developers can easily get **real-time prices, historical data, and token information**.
+📊 Crypto Price API is a lightweight suite of API provided by [Bitquery](https://ide.bitquery.io/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds) to fetch and stream live cryptocurrency prices, historical data, and token analytics across multiple blockchains, using its [Trading API Endpoints](https://docs.bitquery.io/docs/category/crypto-price-apis/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds).
 
 ---
 
-## 🚀 Features
+## What is Crypto Price API?
+
+A **Crypto Price API** allows developers to access real-time and historical cryptocurrency prices programmatically. Bitquery’s Crypto Price API provides data for tokens across chains like Ethereum, Solana, BSC, Polygon, and Tron — all through simple GraphQL queries or WebSocket streams.
+
+---
+
+## 🚀 Crypto Price API Features
 
 - Get the latest token price in USD
 - Stream live token price updates
@@ -14,7 +19,7 @@ This project provides wrappers around Bitquery GraphQL queries and subscriptions
 - Extendable query SDK workflow for adding new APIs
 - Open source & developer-friendly
 
-## List of Chains Supported
+## List of Chains Supported by Crypto Price API
 
 - [Etheruem](https://docs.bitquery.io/docs/blockchain/Ethereum/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds)
 - [BSC](https://docs.bitquery.io/docs/blockchain/BSC/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds)
@@ -33,13 +38,13 @@ npm install bitquery-crypto-price
 
 ---
 
-## Access Token
+## Get Access Token
 
 Get Your Bitquery Access Token [here](https://account.bitquery.io/user/api_v2/access_tokens/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds)
 
 ---
 
-## ⚡ Quick Start
+## ⚡ Quick Start for Crypto Price API
 
 ### 1. Get the latest price for a token
 
@@ -119,7 +124,7 @@ const ws = getPriceChangeStream("<Access Token>", "CURRENCY_ID", {
 
 ---
 
-## 🧩 Extending the SDK (Adding New Queries)
+## 🧩 Extending the Crypto Price API (Adding New Queries and Streams)
 
 To add support for more Trading APIs (e.g., OHLC candles, trades, liquidity pools):
 
@@ -189,4 +194,4 @@ MIT License. Free to use and modify.
 ## Contact
 
 Contact our team via [Telegram](https://t.me/Bloxy_info/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds) for any support.
-Fill out [this](https://bitquery.io/forms/api/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds) form, if you are interested in purchashing any product or service from Bitquery.
+Fill out [this](https://bitquery.io/forms/api/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds) form, if you are interested in purchasing any product or service from Bitquery.
