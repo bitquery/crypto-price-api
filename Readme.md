@@ -176,6 +176,7 @@ That’s it! Your new query is available to all SDK users after PR merge and rel
 2. Create a feature branch
 3. Follow the workflow for adding queries
 4. Submit a PR 🎉
+5. Make sure to follow the [Contribution Guidelines](https://github.com/bitquery/crypto-price-api?tab=contributing-ov-file)
 
 ---
 
