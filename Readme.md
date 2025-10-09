@@ -1,6 +1,6 @@
 # Crypto Price SDKs
 
-📊 A lightweight SDK to fetch and stream crypto price data from [Bitquery](https://ide.bitquery.io) using its [Trading APIs](https://docs.bitquery.io/docs/category/crypto-price-apis/).
+📊 A lightweight SDK to fetch and stream crypto price data from [Bitquery](https://ide.bitquery.io/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds) using its [Trading APIs](https://docs.bitquery.io/docs/category/crypto-price-apis/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds).
 This project provides wrappers around Bitquery GraphQL queries and subscriptions so developers can easily get **real-time prices, historical data, and token information**.
 
 ---
@@ -16,12 +16,12 @@ This project provides wrappers around Bitquery GraphQL queries and subscriptions
 
 ## List of Chains Supported
 
-- [Etheruem](https://docs.bitquery.io/docs/blockchain/Ethereum/)
-- [BSC](https://docs.bitquery.io/docs/blockchain/BSC/)
-- [Solana](https://docs.bitquery.io/docs/blockchain/Solana/)
-- [Tron](https://docs.bitquery.io/docs/blockchain/Tron/)
-- [Polygon](https://docs.bitquery.io/docs/blockchain/Matic/)
-- [Base](https://docs.bitquery.io/docs/blockchain/Base/)
+- [Etheruem](https://docs.bitquery.io/docs/blockchain/Ethereum/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds)
+- [BSC](https://docs.bitquery.io/docs/blockchain/BSC/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds)
+- [Solana](https://docs.bitquery.io/docs/blockchain/Solana/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds)
+- [Tron](https://docs.bitquery.io/docs/blockchain/Tron/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds)
+- [Polygon](https://docs.bitquery.io/docs/blockchain/Matic/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds)
+- [Base](https://docs.bitquery.io/docs/blockchain/Base/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds)
 
 ---
 
@@ -35,7 +35,7 @@ npm install bitquery-crypto-price
 
 ## Access Token
 
-Get Your Bitquery Access Token [here](https://account.bitquery.io/user/api_v2/access_tokens)
+Get Your Bitquery Access Token [here](https://account.bitquery.io/user/api_v2/access_tokens/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds)
 
 ---
 
@@ -187,4 +187,5 @@ MIT License. Free to use and modify.
 
 ## Contact
 
-Contact our team via [Telegram](https://t.me/Bloxy_info) for any support.
+Contact our team via [Telegram](https://t.me/Bloxy_info/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds) for any support.
+Fill out [this](https://bitquery.io/forms/api/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds) form, if you are interested in purchashing any product or service from Bitquery.
