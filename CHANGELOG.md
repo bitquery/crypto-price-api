@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/bitquery/crypto-price-api/compare/v1.3.1...v1.3.2) (2025-10-09)
+
+
+### Bug Fixes
+
+* Links Correction ([c2fd81d](https://github.com/bitquery/crypto-price-api/commit/c2fd81df5e10805529b85b72a99d5256f05c2235))
+
 ## [1.3.1](https://github.com/bitquery/crypto-price-feeds/compare/v1.3.0...v1.3.1) (2025-10-09)
 
 
