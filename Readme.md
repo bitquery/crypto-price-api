@@ -1,6 +1,6 @@
-# Bitquery Price Feeds SDK
+# Crypto Price SDKs
 
-📊 A lightweight SDK to fetch and stream crypto price data from [Bitquery](https://bitquery.io/) using its Trading APIs.
+📊 A lightweight SDK to fetch and stream crypto price data from [Bitquery](https://ide.bitquery.io) using its [Trading APIs](https://docs.bitquery.io/docs/category/crypto-price-apis/).
 This project provides wrappers around Bitquery GraphQL queries and subscriptions so developers can easily get **real-time prices, historical data, and token information**.
 
 ---
@@ -16,11 +16,12 @@ This project provides wrappers around Bitquery GraphQL queries and subscriptions
 
 ## List of Chains Supported
 
-- Etheruem
-- BSC
-- Solana
-- Tron
-- Polygon
+- [Etheruem](https://docs.bitquery.io/docs/blockchain/Ethereum/)
+- [BSC](https://docs.bitquery.io/docs/blockchain/BSC/)
+- [Solana](https://docs.bitquery.io/docs/blockchain/Solana/)
+- [Tron](https://docs.bitquery.io/docs/blockchain/Tron/)
+- [Polygon](https://docs.bitquery.io/docs/blockchain/Matic/)
+- [Base](https://docs.bitquery.io/docs/blockchain/Base/)
 
 ---
 
@@ -184,4 +185,6 @@ MIT License. Free to use and modify.
 
 ---
 
-👉 Do you want me to also include a **“Planned Queries” section** (like OHLC candles, trades, markets) so contributors know what’s next on the roadmap?
+## Contact
+
+Contact our team via [Telegram](https://t.me/Bloxy_info) for any support.
