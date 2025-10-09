@@ -1,6 +1,6 @@
-# Crypto Price SDKs
+# Crypto Price API
 
-📊 A lightweight SDK to fetch and stream crypto price data from [Bitquery](https://ide.bitquery.io/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds) using its [Trading APIs](https://docs.bitquery.io/docs/category/crypto-price-apis/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds).
+📊 A lightweight set of API to fetch and stream crypto price data from [Bitquery](https://ide.bitquery.io/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds) using its [Trading APIs](https://docs.bitquery.io/docs/category/crypto-price-apis/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-feeds).
 This project provides wrappers around Bitquery GraphQL queries and subscriptions so developers can easily get **real-time prices, historical data, and token information**.
 
 ---
