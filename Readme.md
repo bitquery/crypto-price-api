@@ -1,6 +1,6 @@
 # Crypto Price API
 
-📊 Crypto Price API is a lightweight suite of API provided by [Bitquery](https://ide.bitquery.io/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api) to fetch and stream live cryptocurrency prices, historical data, and token analytics across multiple blockchains, using its [Trading API Endpoints](https://docs.bitquery.io/docs/category/crypto-price-apis/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api).
+📊 Crypto Price API is a lightweight suite of API provided by [Bitquery](https://ide.bitquery.io?utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api) to fetch and stream live cryptocurrency prices, historical data, and token analytics across multiple blockchains, using its [Trading API Endpoints](https://docs.bitquery.io/docs/category/crypto-price-apis?utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api).
 
 ---
 
@@ -21,12 +21,12 @@ A **Crypto Price API** allows developers to access real-time and historical cryp
 
 ## List of Chains Supported by Crypto Price API
 
-- [Ethereum](https://docs.bitquery.io/docs/blockchain/Ethereum/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
-- [BSC](https://docs.bitquery.io/docs/blockchain/BSC/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
-- [Solana](https://docs.bitquery.io/docs/blockchain/Solana/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
-- [Tron](https://docs.bitquery.io/docs/blockchain/Tron/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
-- [Polygon](https://docs.bitquery.io/docs/blockchain/Matic/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
-- [Base](https://docs.bitquery.io/docs/blockchain/Base/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
+- [Ethereum](https://docs.bitquery.io/docs/blockchain/Ethereum?utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
+- [BSC](https://docs.bitquery.io/docs/blockchain/BSC?utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
+- [Solana](https://docs.bitquery.io/docs/blockchain/Solana?utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
+- [Tron](https://docs.bitquery.io/docs/blockchain/Tron?utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
+- [Polygon](https://docs.bitquery.io/docs/blockchain/Matic?utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
+- [Base](https://docs.bitquery.io/docs/blockchain/Base?utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
 
 ---
 
@@ -40,7 +40,7 @@ npm install bitquery-crypto-price
 
 ## Access Token
 
-Get Your Bitquery Access Token [here](https://account.bitquery.io/user/api_v2/access_tokens/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
+Get Your Bitquery Access Token [here](https://account.bitquery.io/user/api_v2/access_tokens?utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
 
 ---
 
@@ -193,5 +193,5 @@ MIT License. Free to use and modify.
 
 ## Contact
 
-Contact our team via [Telegram](https://t.me/Bloxy_info/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api) for any support.
-Fill out [this](https://bitquery.io/forms/api/utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api) form, if you are interested in purchasing any product or service from Bitquery.
+Contact our team via [Telegram](https://t.me/Bloxy_info?utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api) for any support.
+Fill out [this](https://bitquery.io/forms/api?utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api) form, if you are interested in purchasing any product or service from Bitquery.
