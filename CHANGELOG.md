@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/bitquery/crypto-price-api/compare/v1.3.3...v1.4.0) (2025-10-28)
+
+
+### Features
+
+* volume endpoint added for token ([c3997b6](https://github.com/bitquery/crypto-price-api/commit/c3997b6f781df608ac83671c64ac1e22fcff9ca2))
+* Volume query added with flexible time durations ([348ddc6](https://github.com/bitquery/crypto-price-api/commit/348ddc62ac5c9f8de49cdffbc982c4ab4eace781))
+* Volume query added with flexible time durations ([b44b284](https://github.com/bitquery/crypto-price-api/commit/b44b2847bf39545699778f244b42b5268a078416))
+
 ## [1.3.3](https://github.com/bitquery/crypto-price-api/compare/v1.3.2...v1.3.3) (2025-10-10)
 
 
