@@ -15,6 +15,8 @@ A **Crypto Price API** allows developers to access real-time and historical cryp
 - Get the latest token price in USD
 - Stream live token price updates
 - Get price change percentage for ROI calculations
+- Get token volume data with configurable time intervals
+- Stream live token volume updates
 - Convert token addresses into `currencyId` for queries
 - Extendable query SDK workflow for adding new APIs
 - Open source & developer-friendly
@@ -49,7 +51,7 @@ Get Your Bitquery Access Token [here](https://account.bitquery.io/user/api_v2/ac
 ### 1. Get the latest price for a token
 
 ```js
-const { getTokenPrice } = require("@bitquery/pricefeeds");
+const { getTokenPrice } = require("bitquery-crypto-price");
 
 (async () => {
   const data = await getTokenPrice("<Access Token>", "TOKEN ADDRESS");
@@ -62,7 +64,7 @@ const { getTokenPrice } = require("@bitquery/pricefeeds");
 ### 2. Stream live token price updates
 
 ```js
-const { getTokenPriceStream } = require("@bitquery/pricefeeds");
+const { getTokenPriceStream } = require("bitquery-crypto-price");
 
 const ws = getTokenPriceStream("<Access Token>", "TOKEN ADDRESS", {
   autoCloseMs: 15000, // optional: auto-close after 15 seconds
@@ -82,7 +84,7 @@ const ws = getTokenPriceStream("<Access Token>", "TOKEN ADDRESS", {
 ### 3. Get 5-min price change of a token
 
 ```js
-const { getPriceChange } = require("@bitquery/pricefeeds");
+const { getPriceChange } = require("bitquery-crypto-price");
 
 (async () => {
   const data = await getPriceChange("<Access Token>", "CURRENCY_ID");
@@ -95,12 +97,46 @@ const { getPriceChange } = require("@bitquery/pricefeeds");
 ### 4. Stream live price change updates
 
 ```js
-const { getPriceChangeStream } = require("@bitquery/pricefeeds");
+const { getPriceChangeStream } = require("bitquery-crypto-price");
 
 const ws = getPriceChangeStream("<Access Token>", "CURRENCY_ID", {
   autoCloseMs: 30000, // optional: auto-close after 30 seconds
   onData: (data) => {
     console.log("Live price changes:", JSON.stringify(data, null, 2));
+  },
+  onError: (err) => {
+    console.error("Stream error:", err);
+  },
+});
+
+// ws.close() // manually close if needed
+```
+
+---
+
+### 5. Get token volume data
+
+```js
+const { getTokenVolume } = require("bitquery-crypto-price");
+
+(async () => {
+  const data = await getTokenVolume("<Access Token>", "TOKEN ADDRESS", 3600); // 3600 = 1 hour interval
+  console.log(JSON.stringify(data, null, 2));
+})();
+```
+
+---
+
+### 6. Stream live token volume updates
+
+```js
+const { getTokenVolumeStream } = require("bitquery-crypto-price");
+
+const ws = getTokenVolumeStream("<Access Token>", "TOKEN ADDRESS", {
+  interval: 3600, // optional: time interval in seconds (default: 3600)
+  autoCloseMs: 30000, // optional: auto-close after 30 seconds
+  onData: (data) => {
+    console.log("Live token volume:", JSON.stringify(data, null, 2));
   },
   onError: (err) => {
     console.error("Stream error:", err);
@@ -121,6 +157,8 @@ const ws = getPriceChangeStream("<Access Token>", "CURRENCY_ID", {
 | `getTokenPriceStream`   | Subscribe to real-time token price updates (WebSocket stream) |
 | `getPriceChange`        | Get top tokens by price change percentage (point-in-time query) |
 | `getPriceChangeStream`  | Subscribe to real-time price change updates (WebSocket stream) |
+| `getTokenVolume`        | Fetch token volume data (point-in-time query)                 |
+| `getTokenVolumeStream`  | Subscribe to real-time token volume updates (WebSocket stream) |
 
 ---
 

@@ -1,11 +1,11 @@
-const priceChangeQuery = (currencyId) => {
+const priceChangeQuery = (currencyId, interval) => {
     return `
     {
       Trading {
         Tokens(
          orderBy: {descending: Interval_Time_Start}
-        limit: {count: 10}
-          where: {Price: {IsQuotedInUsd: true}, Volume: {Usd: {gt: 100000}}, Interval: {Time: {Duration: {eq: 300}}}, Currency: {Id: {is: "${currencyId}"}}}
+        limit: {count: 1}
+          where: {Price: {IsQuotedInUsd: true}, Volume: {Usd: {gt: 100000}}, Interval: {Time: {Duration: {eq: ${interval}}}}, Currency: {Id: {is: "${currencyId}"}}}
         ) {
           Token {
             Address
@@ -60,12 +60,12 @@ const priceChangeQuery = (currencyId) => {
     `;
   };
   
-  const priceChangeStream = (currencyId) => {
+  const priceChangeStream = (currencyId, interval) => {
     return `
     subscription {
       Trading {
         Tokens(
-          where: {Price: {IsQuotedInUsd: true}, Volume: {Usd: {gt: 100000}}, Interval: {Time: {Duration: {eq: 300}}}, Currency: {Id: {is: "${currencyId}"}}}
+          where: {Price: {IsQuotedInUsd: true}, Volume: {Usd: {gt: 100000}}, Interval: {Time: {Duration: {eq: ${interval}}}}, Currency: {Id: {is: "${currencyId}"}}}
         ) {
           Token {
             Address

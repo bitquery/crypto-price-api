@@ -3,6 +3,7 @@ const { streamRunner } = require("./stream-runner.js");
 const {tokenPriceQuery, tokenPriceStream} = require('./queries/token-price-query.js');
 const {priceChangeQuery, priceChangeStream} = require('./queries/price-change-query.js');
 const {currencyIdQuery} = require('./queries/currency-id-query.js');
+const {tokenVolumeQuery, tokenVolumeStream} = require('./queries/token-volume-query.js');
 
 /**
  * 
@@ -72,13 +73,13 @@ const getCurrencyId = async (token, address) => {
  * @param {string} address - the token address, e.g. "0x4d15a3a2286d883af0aa1b3f21367843fac63e07"
  * @returns {JSON Object} - JSON object that contains price change data for tokens
  */
-const getPriceChange = async (token, address) => {
+const getPriceChange = async (token, address, interval = 300) => {
     try {
         // First fetch the currency ID using the address
         const currencyId = await currencyIdQuery(address, token);
         console.log("Fetched currencyId for price change:", currencyId);
         // Then fetch the price change data using the currency ID
-        const query = priceChangeQuery(currencyId);
+        const query = priceChangeQuery(currencyId, interval);
         const data = await queryRunner(query, token);
         return data;
     } catch (error) {
@@ -95,13 +96,13 @@ const getPriceChange = async (token, address) => {
  * @param {object} options - optional settings: { autoCloseMs, onData, onError }
  * @returns {Promise<WebSocket>} - active WebSocket connection
  */
-const getPriceChangeStream = async (token, address, options = {}) => {
+const getPriceChangeStream = async (token, address, interval = 300, options = {}) => {
     try {
         // First fetch the currency ID using the address
         const currencyId = await currencyIdQuery(address, token);
         console.log("Fetched currencyId for price change stream:", currencyId);
         // Then start the stream using the currency ID
-        const subscription = priceChangeStream(currencyId);
+        const subscription = priceChangeStream(currencyId, interval);
         return streamRunner(subscription, token, {
           autoCloseMs: options.autoCloseMs,
           onData: options.onData,
@@ -113,7 +114,49 @@ const getPriceChangeStream = async (token, address, options = {}) => {
     }
 };
 
-module.exports = {getCurrencyId, getTokenPrice, getTokenPriceStream, getPriceChange, getPriceChangeStream};
+/**
+ * getTokenVolume
+ * Get token volume data
+ * @param {string} token - your Bitquery OAuth token
+ * @param {string} address - the token address, e.g. "0x4d15a3a2286d883af0aa1b3f21367843fac63e07" for WETH
+ * @param {number} interval - time interval in seconds (default: 3600)
+ * @returns {JSON Object} - JSON object that contains the token volume data
+ */
+const getTokenVolume = async (token, address, interval = 3600) => {
+    try {
+        const query = tokenVolumeQuery(address, interval);
+        const data = await queryRunner(query, token);
+        return data;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
+/**
+ * getTokenVolumeStream
+ * Stream live token volume data
+ * @param {string} token - your Bitquery OAuth token
+ * @param {string} address - the token address, e.g. "0x4d15a3a2286d883af0aa1b3f21367843fac63e07" for WETH
+ * @param {object} options - optional settings: { interval, autoCloseMs, onData, onError }
+ * @returns {Promise<WebSocket>} - active WebSocket connection
+ */
+const getTokenVolumeStream = async (token, address, options = {}) => {
+    try {
+        const interval = options.interval || 3600;
+        const subscription = tokenVolumeStream(address, interval);
+        return streamRunner(subscription, token, {
+          autoCloseMs: options.autoCloseMs,
+          onData: options.onData,
+          onError: options.onError,
+        });
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
+module.exports = {getCurrencyId, getTokenPrice, getTokenPriceStream, getPriceChange, getPriceChangeStream, getTokenVolume, getTokenVolumeStream};
 
 /* Usage
 
