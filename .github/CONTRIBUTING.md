@@ -8,7 +8,7 @@ We welcome improvements, bug fixes, and new query SDKs!
 
 ## 🚀 How to Contribute
 
-1. **Fork the repo** and create your branch from `main`.
+1. **Fork the repo [https://github.com/bitquery/crypto-price-api](https://github.com/bitquery/crypto-price-api)** and create your branch from `main`.
 2. **Write clear commit messages** following the [Conventional Commits](#-conventional-commits) standard.
 3. **Add tests or examples** if you add new functionality.
 4. **Open a Pull Request** with a clear description of your changes.
