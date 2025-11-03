@@ -19,7 +19,7 @@ const streamRunner = (subscriptionQuery, token, options = {}) => {
   } = options;
 
   const bitqueryConnection = new WebSocket(
-    `wss://streaming.bitquery.io/eap?token=${token}`,
+    `wss://streaming.bitquery.io/graphql?token=${token}`,
     ["graphql-ws"]
   );
 

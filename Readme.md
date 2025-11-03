@@ -17,6 +17,8 @@ A **Crypto Price API** allows developers to access real-time and historical cryp
 - Get price change percentage for ROI calculations
 - Get token volume data with configurable time intervals
 - Stream live token volume updates
+- Get volume data for multiple tokens simultaneously
+- Stream live volume updates for multiple tokens simultaneously
 - Convert token addresses into `currencyId` for queries
 - Extendable query SDK workflow for adding new APIs
 - Open source & developer-friendly
@@ -148,17 +150,64 @@ const ws = getTokenVolumeStream("<Access Token>", "TOKEN ADDRESS", {
 
 ---
 
+### 7. Get volume data for multiple tokens
+
+```js
+const { getMultipleTokenVolume } = require("bitquery-crypto-price");
+
+(async () => {
+  const tokenAddresses = [
+    "0x4d15a3a2286d883af0aa1b3f21367843fac63e07", // WETH
+    "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", // USDC
+    "0xdac17f958d2ee523a2206206994597c13d831ec7"  // USDT
+  ];
+  const data = await getMultipleTokenVolume("<Access Token>", tokenAddresses, 3600); // 3600 = 1 hour interval
+  console.log(JSON.stringify(data, null, 2));
+})();
+```
+
+---
+
+### 8. Stream live volume updates for multiple tokens
+
+```js
+const { getMultipleTokenVolumeStream } = require("bitquery-crypto-price");
+
+const tokenAddresses = [
+  "0x4d15a3a2286d883af0aa1b3f21367843fac63e07", // WETH
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", // USDC
+  "0xdac17f958d2ee523a2206206994597c13d831ec7"  // USDT
+];
+
+const ws = getMultipleTokenVolumeStream("<Access Token>", tokenAddresses, {
+  interval: 3600, // optional: time interval in seconds (default: 3600)
+  autoCloseMs: 30000, // optional: auto-close after 30 seconds
+  onData: (data) => {
+    console.log("Live multiple token volumes:", JSON.stringify(data, null, 2));
+  },
+  onError: (err) => {
+    console.error("Stream error:", err);
+  },
+});
+
+// ws.close() // manually close if needed
+```
+
+---
+
 ## 🛠️ Available Functions
 
-| Function                | Description                                                   |
-| ----------------------- | ------------------------------------------------------------- |
-| `getCurrencyId`         | Get `currencyId` from a token address (required for queries)  |
-| `getTokenPrice`         | Fetch the latest token price (point-in-time query)            |
-| `getTokenPriceStream`   | Subscribe to real-time token price updates (WebSocket stream) |
-| `getPriceChange`        | Get top tokens by price change percentage (point-in-time query) |
-| `getPriceChangeStream`  | Subscribe to real-time price change updates (WebSocket stream) |
-| `getTokenVolume`        | Fetch token volume data (point-in-time query)                 |
-| `getTokenVolumeStream`  | Subscribe to real-time token volume updates (WebSocket stream) |
+| Function                        | Description                                                      |
+| ------------------------------- | ---------------------------------------------------------------- |
+| `getCurrencyId`                 | Get `currencyId` from a token address (required for queries)     |
+| `getTokenPrice`                 | Fetch the latest token price (point-in-time query)               |
+| `getTokenPriceStream`           | Subscribe to real-time token price updates (WebSocket stream)     |
+| `getPriceChange`                | Get top tokens by price change percentage (point-in-time query)  |
+| `getPriceChangeStream`          | Subscribe to real-time price change updates (WebSocket stream)    |
+| `getTokenVolume`                | Fetch token volume data (point-in-time query)                    |
+| `getTokenVolumeStream`          | Subscribe to real-time token volume updates (WebSocket stream)   |
+| `getMultipleTokenVolume`        | Fetch volume data for multiple tokens (point-in-time query)      |
+| `getMultipleTokenVolumeStream`  | Subscribe to real-time volume updates for multiple tokens (WebSocket stream) |
 
 ---
 
@@ -215,7 +264,7 @@ That’s it! Your new query is available to all SDK users after PR merge and rel
 
 ## 🤝 Contributing
 
-1. Fork this repo
+1. Fork this repo [https://github.com/bitquery/crypto-price-api](https://github.com/bitquery/crypto-price-api)
 2. Create a feature branch
 3. Follow the workflow for adding queries
 4. Submit a PR 🎉
