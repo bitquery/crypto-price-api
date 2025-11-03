@@ -215,7 +215,7 @@ That’s it! Your new query is available to all SDK users after PR merge and rel
 
 ## 🤝 Contributing
 
-1. Fork this repo
+1. Fork this repo [https://github.com/bitquery/crypto-price-api](https://github.com/bitquery/crypto-price-api)
 2. Create a feature branch
 3. Follow the workflow for adding queries
 4. Submit a PR 🎉
