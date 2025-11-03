@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/bitquery/crypto-price-api/compare/v1.4.0...v1.4.1) (2025-11-03)
+
+
+### Bug Fixes
+
+* readme update with repository link ([b9d61b6](https://github.com/bitquery/crypto-price-api/commit/b9d61b60c5e702b232721d2b3b2f1c9b6e3549ae))
+
 # [1.4.0](https://github.com/bitquery/crypto-price-api/compare/v1.3.3...v1.4.0) (2025-10-28)
 
 
