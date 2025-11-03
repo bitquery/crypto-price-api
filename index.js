@@ -3,7 +3,7 @@ const { streamRunner } = require("./stream-runner.js");
 const {tokenPriceQuery, tokenPriceStream} = require('./queries/token-price-query.js');
 const {priceChangeQuery, priceChangeStream} = require('./queries/price-change-query.js');
 const {currencyIdQuery} = require('./queries/currency-id-query.js');
-const {tokenVolumeQuery, tokenVolumeStream} = require('./queries/token-volume-query.js');
+const {tokenVolumeQuery, tokenVolumeStream, multipleTokenVolumeQuery, multipleTokenVolumeStream} = require('./queries/token-volume-query.js');
 
 /**
  * 
@@ -133,6 +133,16 @@ const getTokenVolume = async (token, address, interval = 3600) => {
     }
 };
 
+const getMultipleTokenVolume = async (token, addresses, interval = 3600) => {
+    try {
+        const query = multipleTokenVolumeQuery(addresses, interval);
+        const data = await queryRunner(query, token);
+        return data;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
 /**
  * getTokenVolumeStream
  * Stream live token volume data
@@ -156,7 +166,22 @@ const getTokenVolumeStream = async (token, address, options = {}) => {
     }
 };
 
-module.exports = {getCurrencyId, getTokenPrice, getTokenPriceStream, getPriceChange, getPriceChangeStream, getTokenVolume, getTokenVolumeStream};
+const getMultipleTokenVolumeStream = async (token, addresses, options = {}) => {
+    try {
+        const interval = options.interval || 3600;
+        const subscription = multipleTokenVolumeStream(addresses, interval);
+        return streamRunner(subscription, token, {
+            autoCloseMs: options.autoCloseMs,
+            onData: options.onData,
+            onError: options.onError,
+        });
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
+module.exports = {getCurrencyId, getTokenPrice, getTokenPriceStream, getPriceChange, getPriceChangeStream, getTokenVolume, getTokenVolumeStream, getMultipleTokenVolume, getMultipleTokenVolumeStream};
 
 /* Usage
 
