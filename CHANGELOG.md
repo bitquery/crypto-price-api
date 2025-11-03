@@ -1,3 +1,11 @@
+# [1.5.0](https://github.com/bitquery/crypto-price-api/compare/v1.4.1...v1.5.0) (2025-11-03)
+
+
+### Features
+
+* Multi token volume fetch enabled ([b0826af](https://github.com/bitquery/crypto-price-api/commit/b0826af340874c3104f530fda56345cd1d407516))
+* Stream or Query Volume of multiple tokens ([13516aa](https://github.com/bitquery/crypto-price-api/commit/13516aa4333ecd089aba14cec042694388f20a02))
+
 ## [1.4.1](https://github.com/bitquery/crypto-price-api/compare/v1.4.0...v1.4.1) (2025-11-03)
 
 
