@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/bitquery/crypto-price-api/compare/v1.5.0...v1.5.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* Streams pricing info ([71e8931](https://github.com/bitquery/crypto-price-api/commit/71e8931ea409cac1ccbe7be1859e0088e3e8ca82))
+
 # [1.5.0](https://github.com/bitquery/crypto-price-api/compare/v1.4.1...v1.5.0) (2025-11-03)
 
 
