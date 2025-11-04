@@ -32,6 +32,8 @@ A **Crypto Price API** allows developers to access real-time and historical cryp
 - [Polygon](https://docs.bitquery.io/docs/blockchain/Matic?utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
 - [Base](https://docs.bitquery.io/docs/blockchain/Base?utm_source=github&utm_medium=repo&utm_campaign=crypto-price-api)
 
+## How Does
+
 ---
 
 ## 📦 Installation
@@ -210,6 +212,24 @@ const ws = getMultipleTokenVolumeStream("<Access Token>", tokenAddresses, {
 | `getMultipleTokenVolumeStream`  | Subscribe to real-time volume updates for multiple tokens (WebSocket stream) |
 
 ---
+
+## 💰 Subscription/Stream Pricing
+
+When using the stream functions (`*Stream` functions), you are charged based on **simultaneous active streams**. We don't count based on number of tokens monitored.
+
+- **Billing Model**: Each active stream subscription is charged
+- **Separate Subscriptions**: Each stream function call counts as a separate subscription:
+  - `getTokenPriceStream()` = 1 subscription
+  - `getMultipleTokenVolume()` = 1 subscription  
+  - `getTokenVolumeStream()` = 1 subscription
+  - Running multiple streams simultaneously = multiple subscriptions
+
+**Important Notes**:
+- Billing is based on **number of subscriptions and duration**, not query complexity or data volume
+- Check your points usage and manage subscriptions at your [Bitquery Account Dashboard](https://account.bitquery.io/user/api_v2/subscriptions)
+
+For detailed pricing information, contact sales by filling the [form on the Bitquery website](https://bitquery.io/forms/api)
+
 
 ## 🧩 Extending the Crypto Price API (Adding New Queries and Streams)
 
